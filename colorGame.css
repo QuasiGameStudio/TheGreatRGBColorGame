@@ -1,10 +1,19 @@
 body{
     background-color: #232323;
+    margin: 0;
+    font-family: "Montserrat", "Avenir";
 }
 
 
 h1{
+    text-align: center;
+    line-height: 1.1;
+    font-weight: normal;
     color: white;
+    background: steelblue;
+    margin: 0;
+    text-transform: uppercase;
+    padding: 20px 0;
 }
 
 .square{
@@ -23,10 +32,10 @@ h1{
     margin: 0 auto;
     max-width: 600px;
 }
-/* 
-#message{
-    color: white;
-} */
+
+#colorDisplay{
+    font-size: 150%;
+}
 
 #stripe{
     background: white;

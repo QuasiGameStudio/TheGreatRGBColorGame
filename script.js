@@ -1,29 +1,51 @@
 // alert("Connected");
 
 
-
+var numSquares = 6;
 var squares = document.querySelectorAll(".square");
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
-var easyBtn = document.querySelector("easyBtn");
-var hardBtn = document.querySelector("hardBtn");
+var easyBtn = document.querySelector("#easyBtn");
+var hardBtn = document.querySelector("#hardBtn");
 
 var colors = [];
 var pickedColor;
 
 easyBtn.addEventListener("click", function () {
-    
+    easyBtn.classList.add("selected");
+    hardBtn.classList.remove("selected");
+    colors = generateRandomColors(3);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    numSquares = 3;
+    for (var i = 0; i < squares.length; i++) {
+        if(colors[i]){
+            squares[i].style.backgroundColor = colors[i];
+        } else {
+            squares[i].style.display = "none";
+        }
+        
+    }
 });
 
 hardBtn.addEventListener("click", function () {
-    
+    easyBtn.classList.remove("selected");
+    hardBtn.classList.add("selected");
+    colors = generateRandomColors(6);
+    pickedColor = pickColor();
+    colorDisplay.textContent = pickedColor;
+    numSquares = 6;
+    for (var i = 0; i < squares.length; i++) {        
+        squares[i].style.backgroundColor = colors[i];        
+        squares[i].style.display = "block ";        
+    }
 });
 
 resetButton.addEventListener("click", function () {
     //generate all new colors
-    colors = generateRandomColors(6)
+    colors = generateRandomColors(numSquares)
     //pick a new random color from array
     pickedColor = pickColor();
     //change color display
