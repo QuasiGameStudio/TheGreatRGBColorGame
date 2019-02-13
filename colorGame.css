@@ -2,6 +2,11 @@ body{
     background-color: #232323;
 }
 
+
+h1{
+    color: white;
+}
+
 .square{
     width: 30%;
     background: purple;
@@ -10,15 +15,22 @@ body{
     margin: 1.66%;
 }
 
+.selected{
+    background: blue;
+}
+
 #container{
     margin: 0 auto;
     max-width: 600px;
 }
-
+/* 
 #message{
     color: white;
-}
+} */
 
-h1{
-    color: white;
+#stripe{
+    background: white;
+    height: 30px;
+    text-align: center;
+    color: black;
 }

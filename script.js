@@ -1,22 +1,42 @@
 // alert("Connected");
 
-var colors = [
-    "rgb(255, 0, 0)",
-    "rgb(255, 255, 0)",
-    "rgb(0, 255, 0)",
-    "rgb(0, 255, 255)",
-    "rgb(0, 0, 255)",
-    "rgb(255, 0, 255)"
-]
+
 
 var squares = document.querySelectorAll(".square");
-var pickedColor;
 var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1 = document.querySelector("h1");
+var resetButton = document.querySelector("#reset");
+var easyBtn = document.querySelector("easyBtn");
+var hardBtn = document.querySelector("hardBtn");
 
+var colors = [];
+var pickedColor;
 
-colors = generateRandomColors(colors.length);
+easyBtn.addEventListener("click", function () {
+    
+});
+
+hardBtn.addEventListener("click", function () {
+    
+});
+
+resetButton.addEventListener("click", function () {
+    //generate all new colors
+    colors = generateRandomColors(6)
+    //pick a new random color from array
+    pickedColor = pickColor();
+    //change color display
+    colorDisplay.textContent = pickedColor;
+    //cange colors of squares
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].style.backgroundColor = colors[i];   
+    }
+
+    h1.style.backgroundColor = "#232323";
+});
+
+colors = generateRandomColors(6);
 pickedColor = pickColor();
 colorDisplay.textContent = pickedColor;
 
@@ -34,6 +54,7 @@ for (var i = 0; i < squares.length; i++) {
             messageDisplay.textContent = "Correct";
             changeColors(clickedColor);
             h1.style.backgroundColor = clickedColor;
+            resetButton.textContent = "Play Again?";
        }else{
             this.style.backgroundColor = "#232323";
             messageDisplay.textContent = "Try Again!";
